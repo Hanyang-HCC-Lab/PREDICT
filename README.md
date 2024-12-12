@@ -138,22 +138,6 @@ python main_dict.py -i output/Dataset_<dataset_alias>/PRE_to_DICT/reference.csv 
    ```plaintext
    output/Dataset_A/DICT/
    ```
-- Input Data Preparation (`input-file`)
-
-   The input CSV file must contain the debate data, including at least the following columns:
-   
-   | **text**                   | **label**    | **Not_Hate_Reason**                              | **Hate_Reason**                              |
-   |----------------------------|--------------|--------------------------------------------------|----------------------------------------------|
-   | "You are so ugly"          | Non Hate     | "This statement is rude but not hate speech."    | "This statement implies hate speech against appearance." |
-   | "All women should stay home" | Hate Speech | "This implies a stereotype but lacks hateful tone." | "This perpetuates a harmful stereotype." |
-   
-   - **Column Descriptions**:
-     - **`text`**: The text data that serves as the input for the debate.
-     - **`label`**: The classification label, e.g., `Hate Speech` or `Non Hate`.
-     - **`Not_Hate_Reason`**: The reasoning provided by the Non-Hate agent for why the text is not hate speech.
-     - **`Hate_Reason`**: The reasoning provided by the Hate agent for why the text is hate speech.
-   
-   This file is generated in the **PRE to DICT** step by `main_pre_to_dict.py`.
 
 
 ## Reference
