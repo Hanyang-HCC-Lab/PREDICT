@@ -1,0 +1,38 @@
+{
+    "0": {
+        "Label": "Offensive",
+        "Reason": "The text contains offensive expressions towards individuals based on their age and gender, implying negative stereotypes and mocking behavior."
+    },
+    "1": {
+        "Label": "Offensive",
+        "Reason": "The text contains offensive expressions that are toxic and likely to annoy readers, including sarcasm and criticism towards a specific individual."
+    },
+    "2": {
+        "Label": "Offensive",
+        "Reason": "Contains insults towards the target, using derogatory language."
+    },
+    "3": {
+        "Label": "Offensive",
+        "Reason": "Contains insults towards the government officials and citizens, as well as a call for awakening, which can be considered offensive and disrespectful."
+    },
+    "4": {
+        "Label": "Not Offensive",
+        "Reason": "The text contains words of encouragement and support towards athletes without any offensive expressions or targeting specific groups."
+    },
+    "5": {
+        "Label": "Not Offensive",
+        "Reason": "The text contains no offensive expressions or indications of offense towards any target or individual."
+    },
+    "6": {
+        "Label": "Offensive",
+        "Reason": "Contains insults towards the target individual."
+    },
+    "7": {
+        "Label": "Not Offensive",
+        "Reason": "The text does not contain any offensive expressions or indications of offense towards any target or individual."
+    },
+    "8": {
+        "Label": "Not Offensive",
+        "Reason": "The text does not contain any offensive expressions or indications of offense towards any target or individual."
+    }
+}

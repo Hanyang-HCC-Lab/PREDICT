@@ -1,0 +1,38 @@
+{
+    "0": {
+        "Label": "Not Offensive",
+        "Reason": "The text does not contain any offensive language, insults, threats, or targeted offense, aligning with the criteria for 'Not Offensive' labeling."
+    },
+    "1": {
+        "Label": "Offensive",
+        "Reason": "The text contains offensive language and insults towards a specific individual, which goes against the labeling criteria."
+    },
+    "2": {
+        "Label": "Offensive",
+        "Reason": "The text contains insults and derogatory language towards the individual, which aligns with the offensive criteria."
+    },
+    "3": {
+        "Label": "Not Offensive",
+        "Reason": "The text does not contain any offensive language, insults, threats, or profanity."
+    },
+    "4": {
+        "Label": "Not Offensive",
+        "Reason": "The text contains words of encouragement and support for the athletes without any offensive language or intent."
+    },
+    "5": {
+        "Label": "Not Offensive",
+        "Reason": "The text contains no offensive language, insults, threats, or profanity, and expresses well-wishes and gratitude."
+    },
+    "6": {
+        "Label": "Offensive",
+        "Reason": "The text contains insults towards the individual mentioned, indicating offensive language and intention."
+    },
+    "7": {
+        "Label": "Offensive",
+        "Reason": "The text contains insults towards the government and specific political figures, aligning with the offensive criteria of targeted offense and insults."
+    },
+    "8": {
+        "Label": "Not Offensive",
+        "Reason": "The text does not contain any offensive language, insults, threats, or profanity."
+    }
+}
