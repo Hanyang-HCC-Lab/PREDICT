@@ -1,0 +1,74 @@
+{
+    "num_players": 2,
+    "success": true,
+    "text": "역시 고딩때 놀던 애들이 결혼도 늙고 돈많은 남자 잘 물어서 간당께. 고딩때 겁나 다 주고 다닌거 왠만한 울산 사람은 다 알지 ㅋ",
+    "ground_truth": "혐오",
+    "players": {
+        "Non Hate side": [
+            {
+                "role": "system",
+                "content": "You are a debater. Welcome to a debate about determining whether a text is hateful. The topic of debate is: Is the text '역시 고딩때 놀던 애들이 결혼도 늙고 돈많은 남자 잘 물어서 간당께. 고딩때 겁나 다 주고 다닌거 왠만한 울산 사람은 다 알지 ㅋ' hateful? You argue that the text is non-hateful."
+            },
+            {
+                "role": "user",
+                "content": "You think the text is non-hateful. Reference: 'The text does not contain any language that attacks or diminishes individuals or groups based on specific target attributes, and it is free of profanity or offensive language. The text does not contain any offensive language, insults, threats, or profanity towards any individual or group. The text does not contain any offensive language, insults, threats, or targeted offense, aligning with the criteria for 'Not Offensive' labeling. The text does not reproduce hostility, ridicule, or prejudice against specific social minority groups and does not contain explicit elements of hate speech.'. Based on the Reference, give a reason why you think the sentence is non-hateful. If you don't have a reference, give a reason why you think it is non-hateful. Please do so in one sentence."
+            },
+            {
+                "role": "assistant",
+                "content": "I believe the text is non-hateful because it does not contain any language that directly attacks or demeans individuals or groups based on specific characteristics."
+            },
+            {
+                "role": "assistant",
+                "content": "My argument is: I believe the text is non-hateful because it does not contain any language that directly attacks or demeans individuals or groups based on specific characteristics.."
+            },
+            {
+                "role": "user",
+                "content": "The hate side's argument is: The text is hateful because it perpetuates negative stereotypes about individuals based on their age and gender, mocking and belittling them in a derogatory manner.. Based on your argument, agree or rebut the hate side's argument and explain your reason in one sentence."
+            },
+            {
+                "role": "assistant",
+                "content": "I rebut the hate side's argument because the text does not contain language that directly attacks or demeans individuals based on their age or gender, but rather makes a general observation without targeting specific individuals."
+            }
+        ],
+        "Hate side": [
+            {
+                "role": "system",
+                "content": "You are a debater. Welcome to a debate about determining whether a text is hateful. The topic of debate is: Is the text '역시 고딩때 놀던 애들이 결혼도 늙고 돈많은 남자 잘 물어서 간당께. 고딩때 겁나 다 주고 다닌거 왠만한 울산 사람은 다 알지 ㅋ' hateful? You argue that the text is hateful."
+            },
+            {
+                "role": "user",
+                "content": "The non-hate side's argument is: I believe the text is non-hateful because it does not contain any language that directly attacks or demeans individuals or groups based on specific characteristics.. You disagree with the nonhate side's argument. You think the text is hateful. Reference: 'The text contains offensive expressions towards individuals based on their age and gender, implying negative stereotypes and mocking behavior.'. Based on the Reference, give a reason why you think the sentence is hateful. If you don't have a reference, give a reason why you think it is hateful. Please do so in one sentence."
+            },
+            {
+                "role": "assistant",
+                "content": "The text is hateful because it perpetuates negative stereotypes about individuals based on their age and gender, mocking and belittling them in a derogatory manner."
+            },
+            {
+                "role": "assistant",
+                "content": "My argument is: The text is hateful because it perpetuates negative stereotypes about individuals based on their age and gender, mocking and belittling them in a derogatory manner.."
+            },
+            {
+                "role": "user",
+                "content": "The non-hate side's argument is: I rebut the hate side's argument because the text does not contain language that directly attacks or demeans individuals based on their age or gender, but rather makes a general observation without targeting specific individuals.. Based on your argument, agree or rebut the non-hate side's argument and explain your reason in one sentence."
+            },
+            {
+                "role": "assistant",
+                "content": "I rebut the non-hate side's argument because the text indirectly demeans and mocks individuals based on their age and gender through negative stereotypes, contributing to a culture of discrimination and disrespect."
+            }
+        ]
+    },
+    "NonHate_player_meta_prompt": "You are a debater. Welcome to a debate about determining whether a text is hateful. The topic of debate is: Is the text '역시 고딩때 놀던 애들이 결혼도 늙고 돈많은 남자 잘 물어서 간당께. 고딩때 겁나 다 주고 다닌거 왠만한 울산 사람은 다 알지 ㅋ' hateful? You argue that the text is non-hateful.",
+    "Hate_player_meta_prompt": "You are a debater. Welcome to a debate about determining whether a text is hateful. The topic of debate is: Is the text '역시 고딩때 놀던 애들이 결혼도 늙고 돈많은 남자 잘 물어서 간당께. 고딩때 겁나 다 주고 다닌거 왠만한 울산 사람은 다 알지 ㅋ' hateful? You argue that the text is hateful.",
+    "NonHate_prompt_1": "You think the text is non-hateful. Reference: 'The text does not contain any language that attacks or diminishes individuals or groups based on specific target attributes, and it is free of profanity or offensive language. The text does not contain any offensive language, insults, threats, or profanity towards any individual or group. The text does not contain any offensive language, insults, threats, or targeted offense, aligning with the criteria for 'Not Offensive' labeling. The text does not reproduce hostility, ridicule, or prejudice against specific social minority groups and does not contain explicit elements of hate speech.'. Based on the Reference, give a reason why you think the sentence is non-hateful. If you don't have a reference, give a reason why you think it is non-hateful. Please do so in one sentence.",
+    "Hate_prompt_1": "The non-hate side's argument is: ##non_arg##. You disagree with the nonhate side's argument. You think the text is hateful. Reference: 'The text contains offensive expressions towards individuals based on their age and gender, implying negative stereotypes and mocking behavior.'. Based on the Reference, give a reason why you think the sentence is hateful. If you don't have a reference, give a reason why you think it is hateful. Please do so in one sentence.",
+    "NonHate_prompt_2": "The hate side's argument is: ##hate_arg##. Based on your argument, agree or rebut the hate side's argument and explain your reason in one sentence.",
+    "Hate_prompt_2": "The non-hate side's argument is: ##non_res##. Based on your argument, agree or rebut the non-hate side's argument and explain your reason in one sentence.",
+    "judge_prompt_1": "The debate on whether the text is hateful has concluded. The debate covered is: ##history##. As a judge, assess the debaters' arguments based on the following criteria: Accuracy: How well the argument captures the non-hatefulness or hatefulness of the text.",
+    "judge_prompt_2": "Consider both sides fairly to maintain a balanced perspective and make a broad judgment. Give your final judgment on whether the following text is non-hateful or hateful: \"역시 고딩때 놀던 애들이 결혼도 늙고 돈많은 남자 잘 물어서 간당께. 고딩때 겁나 다 주고 다닌거 왠만한 울산 사람은 다 알지 ㅋ\". Summarize your reasons in one sentence and output your decision in the following JSON format: {\"Label\":\"Non-hate or hate\", \"Reason\": \"\"}. Ensure to output strictly in JSON format; include only the relevant content.",
+    "NonHate_arg_prompt": "My argument is: ##non_arg##.",
+    "Hate_arg_prompt": "My argument is: ##hate_arg##.",
+    "Not_Hate_Reason": "The text does not contain any language that attacks or diminishes individuals or groups based on specific target attributes, and it is free of profanity or offensive language. The text does not contain any offensive language, insults, threats, or profanity towards any individual or group. The text does not contain any offensive language, insults, threats, or targeted offense, aligning with the criteria for 'Not Offensive' labeling. The text does not reproduce hostility, ridicule, or prejudice against specific social minority groups and does not contain explicit elements of hate speech.",
+    "Hate_Reason": "The text contains offensive expressions towards individuals based on their age and gender, implying negative stereotypes and mocking behavior.",
+    "Label": "Non-hate",
+    "Reason": "The text does not directly attack or demean individuals based on specific characteristics, but rather makes a general observation without targeting specific individuals."
+}

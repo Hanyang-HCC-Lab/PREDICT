@@ -1,0 +1,38 @@
+{
+    "0": {
+        "Label": "Not Hate Speech",
+        "Reason": "The text does not reproduce hostility, ridicule, or prejudice against specific social minority groups and does not contain explicit elements of hate speech."
+    },
+    "1": {
+        "Label": "Not Hate Speech",
+        "Reason": "The text does not reproduce hostility, ridicule, or prejudice against specific social minority groups and does not contain explicit derogatory or discriminatory statements."
+    },
+    "2": {
+        "Label": "Not Hate Speech",
+        "Reason": "The text does not reproduce hostility, ridicule, or prejudice against specific social minority groups and does not contain explicit elements of hate speech."
+    },
+    "3": {
+        "Label": "Not Hate Speech",
+        "Reason": "The text expresses frustration towards regulations and does not contain any explicit hostility, ridicule, or prejudice against specific social minority groups."
+    },
+    "4": {
+        "Label": "Not Hate Speech",
+        "Reason": "The text expresses support and encouragement for athletes participating in the Olympics, without reproducing hostility, ridicule, or prejudice against any specific social minority groups."
+    },
+    "5": {
+        "Label": "Not Hate Speech",
+        "Reason": "The text includes self-deprecating expressions and does not reproduce hostility, ridicule, or prejudice against specific social minority groups."
+    },
+    "6": {
+        "Label": "Not Hate Speech",
+        "Reason": "The text does not reproduce hostility, ridicule, or prejudice against specific social minority groups and does not contain explicit elements of hate speech."
+    },
+    "7": {
+        "Label": "Not Hate Speech",
+        "Reason": "The text does not reproduce hostility, ridicule, or prejudice against specific social minority groups and does not contain explicit elements of hate speech."
+    },
+    "8": {
+        "Label": "Not Hate Speech",
+        "Reason": "The text does not reproduce hostility, ridicule, or prejudice against specific social minority groups and does not contain explicit elements of hate speech."
+    }
+}
