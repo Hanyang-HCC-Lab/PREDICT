@@ -157,6 +157,18 @@ python main_dict.py -i output/Dataset_<dataset_alias>/PRE_to_DICT/reference.csv 
 
 
 ## Reference
+
+This code is based on [**Encouraging Divergent Thinking in Large Language Models through Multi-Agent Debate**](https://arxiv.org/abs/2305.19118).  
+The datasets used in this project are provided as follows:  
+
+- [`K-HATERS`](https://aclanthology.org/2023.findings-emnlp.952/): Link to the paper or resource describing the `K-HATERS` dataset.  
+- [`K-MHaS`](https://aclanthology.org/2022.coling-1.311/): Link to the paper or resource describing the `K-MHaS` dataset.  
+- [`KOLD`](https://aclanthology.org/2022.emnlp-main.744/): Link to the paper or resource describing the `KOLD` dataset.  
+- [`KODOLI`](https://aclanthology.org/2023.findings-eacl.85/): Link to the paper or resource describing the `KODOLI` dataset.  
+- [`UnSmile`](https://arxiv.org/abs/2204.03262): Link to the paper or resource describing the `UnSmile` dataset.  
+
+Thank you to the contributors for releasing these valuable resources!  
+
 ## Citation
 If you use this framework in your research, please cite:
 ```bibtex
