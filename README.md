@@ -64,7 +64,7 @@ PREDICT/
    - By default, you can refer to the instructions in `faiss/README.md` to complete the embedding process and build the database.
 
 - **Alternative Methods**  
-   - While FAISS is a common choice for creating the embedding database, you are free to use other embedding storage methods that fit your requirements
+   - While FAISS is a common choice for creating the embedding database, you are free to use other embedding storage methods that fit your requirements.
 
 - **Purpose of the Database**  
    - The database is used for **RAG (Retrieve-then-Generate)** to retrieve 'similar context,' as described in the paper.
