@@ -1,6 +1,160 @@
 ## Overview
 [PREDICT: Multi-Agent-based Debate Simulation for Generalized Hate Speech Detection](https://aclanthology.org/2024.emnlp-main.1166/)
+
 ## Run experiments
+### 1. Environmental Setup
+#### 1.1. Install Requirements
+```bash
+pip install -r requirements.txt
+```
+#### 1.2. Verify File Structure
+```bash
+PREDICT/
+├── Dataset/      # Change this directory to your desired dataset
+│   ├── khaters/  # Change this folders to your desired dataset
+│   ├── kmhas/
+│   ├── kodoli/
+│   ├── kold/
+│   └── unsmile/
+├── config/      # Configuration files folder
+│    └── _pycache_/
+│    └── environment.py
+├── faiss/       # FAISS-based database construction (for embedded database construction)
+│   └── README.md
+├── output/      # Experimental results folder
+│   └── Dataset_A/ # Dataset specific output folder
+│       ├── PRE/       # Folder for main_pre.py results
+│       ├── PRE_to_DICT/ # Folder for main_pre_to_dict.py results
+│       └── DICT/      # Folder for main_dict.py results
+├── src/        # Source code folder
+│   └── _pycache_/
+│   ├── main_pre.py
+│   ├── main_dict.py
+│   └── ...
+├── utils/    # Utility scripts and resources
+│   └── _pycache_/
+│   ├── agent_debate.py
+│   ├── debate_prompt.json
+│   ├── openai_utils.py
+│   └── retriever.py
+├── .gitignore
+├── README.md
+├── main_pre.py
+├── main_pre_to_dict.py
+├── main_dict.py
+└── requirements.txt
+```
+### 2. Data Preprocessing
+#### 2.1. Select Data
+- **Choose the Dataset**  
+   - Select the dataset you want to use for the experiments.
+   - Ensure the dataset is saved in the `Dataset/` directory in the following format: `<dataset_name>_sample.csv`.
+
+- **Dataset Format**  
+   - The dataset consists of two columns:
+     - **Text**: The text data for analysis.
+     - **Label**: The corresponding label for the text.
+
+#### 2.2. Build the Database
+- **Create Embeddings**  
+   - Convert the selected dataset into embeddings and build a database.
+   - This step involves embedding the **train set** of the selected dataset.
+
+- **Follow Instructions**  
+   - By default, you can refer to the instructions in `faiss/README.md` to complete the embedding process and build the database.
+
+- **Alternative Methods**  
+   - While FAISS is a common choice for creating the embedding database, you are free to use other embedding storage methods that fit your requirements
+
+- **Purpose of the Database**  
+   - The database is used for **RAG (Retrieve-then-Generate)** to retrieve 'similar context,' as described in the paper.
+
+### 3. Run Experiments
+#### 3.1. Run the PRE phase
+Execute `main_pre.py` for each dataset and agent. You can use command-line arguments to specify the dataset, output path, embedding source, and agent prompt.
+```bash
+python main_pre.py -i Dataset/<evaluation_data>/<evaluation_data>_sample.csv \
+                   -o output/Dataset_<evaluation_data>/PRE/Agent_<agent_name>.json \
+                   -d <embedding_source> \
+                   -a <agent_prompt>
+## Example command:
+# python main_pre.py -i Dataset/khaters/khaters_sample.csv \
+#                    -o output/Dataset_A/PRE/Agent_E.json \
+#                    -d Unsmile \
+#                    -a someen/unsmile
+```
+#### Agent Prompt in LangChain
+
+- The `<agent_prompt>` is stored in LangChain.
+- You can connect LangChain to access the pre-defined prompts. *(Add details if specific setup is required.)*
+- Visit the [LangChain Hub](https://smith.langchain.com/hub?organizationId=f1542bb4-2843-5b16-80f0-dd1d85524b88) and search for the following prompts to update the `<agent_prompt>` parameter:
+
+  - `someen/khaters`
+  - `someen/kmhas`
+  - `someen/kold`
+  - `someen/kodoli`
+  - `someen/unsmile`
+
+By selecting the appropriate prompt from the hub, you can specify the agent's perspective for the experiments.
+
+#### 3.2. Aggregate Agents' outputs
+After running `main_pre.py` for all agents, merge the outputs using `main_pre_to_dict.py`.
+```bash
+python main_pre_to_dict.py -d <evaluation_data> -e <dataset_alias>
+
+## Example command:
+# python pre_to_dict.py -d khaters -e A
+```
+- <evaluation_data>: The name of the dataset being processed (e.g., khaters, kmhas, kold, kodoli, unsmile).
+- <dataset_alias>: The corresponding alias used in the paper for the dataset:
+  - khaters: A
+  - kmhas: B
+  - kold: C
+  - kodoli: D
+  - unsmile: E
+
+#### 3.3. Run the DICT phase
+The DICT phase involves a debate between two representative agents: one representing the **Hate** perspective and the other representing the **Non-Hate** perspective. This step processes the aggregated results to generate the final debate-based output. Execute the debate using `main_dict.py`.
+```bash
+python main_dict.py -i output/Dataset_<dataset_alias>/PRE_to_DICT/reference.csv \
+                    -o output/Dataset_<dataset_alias>/DICT/
+
+## Example command:
+# python main_dict.py -i output/Dataset_A/PRE_to_DICT/reference.csv \
+#                     -o output/Dataset_A/DICT/
+```
+#### `-i` / `--input-file`
+- Specify the path to the merged CSV file generated by `main_pre_to_dict.py`. This file contains the aggregated outputs from the PRE phase.
+- Although this file is located in the `output/` folder, it serves as the input for this phase. The agent opinions in the PRE phase are used as references in the DICT phase.
+**Example**:  
+```plaintext
+output/Dataset_A/PRE_to_DICT/reference.csv
+```
+
+#### `-o` / `--output-dir`
+- Specify the directory where the final JSON results will be saved.
+
+**Example**:  
+```plaintext
+output/Dataset_A/DICT/
+```
+#### Input Data Preparation (`input-file`)
+
+The input CSV file must contain the debate data, including at least the following columns:
+
+| **text**                   | **label**    | **Not_Hate_Reason**                              | **Hate_Reason**                              |
+|----------------------------|--------------|--------------------------------------------------|----------------------------------------------|
+| "You are so ugly"          | Non Hate     | "This statement is rude but not hate speech."    | "This statement implies hate speech against appearance." |
+| "All women should stay home" | Hate Speech | "This implies a stereotype but lacks hateful tone." | "This perpetuates a harmful stereotype." |
+
+- **Column Descriptions**:
+  - **`text`**: The text data that serves as the input for the debate.
+  - **`label`**: The classification label, e.g., `Hate Speech` or `Non Hate`.
+  - **`Not_Hate_Reason`**: The reasoning provided by the Non-Hate agent for why the text is not hate speech.
+  - **`Hate_Reason`**: The reasoning provided by the Hate agent for why the text is hate speech.
+
+This file is generated in the **PRE to DICT** step by `main_pre_to_dict.py`.
+
 
 ## Reference
 ## Citation
@@ -13,3 +167,4 @@ If you use this framework in your research, please cite:
   pages={20963--20987},
   year={2024}
 }
+```
