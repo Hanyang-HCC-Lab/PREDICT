@@ -67,7 +67,7 @@ PREDICT/
    - While FAISS is a common choice for creating the embedding database, you are free to use other embedding storage methods that fit your requirements.
 
 - **Purpose of the Database**  
-   - The database is used for **RAG (Retrieve-then-Generate)** to retrieve 'similar context,' as described in the paper.
+   - The database is used for **RAG (Retrieval-Augmented Generation)** to retrieve 'similar context,' as described in the paper.
 
 ### 3. Run Experiments
 #### 3.1. Run the PRE phase
